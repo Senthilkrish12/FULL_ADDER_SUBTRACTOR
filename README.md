@@ -37,23 +37,67 @@ Diff = A ⊕ B ⊕ Bin
 Borrow out = A'Bin + A'B + BBin
 
 **Truthtable**
+FULL ADDER
+![Screenshot 2024-12-03 084951](https://github.com/user-attachments/assets/b5503988-febf-45f6-ad30-e2ceb5a965b4)
+
+FULL SUBTRACTOR:
+![Screenshot 2024-12-03 085129](https://github.com/user-attachments/assets/871e08c6-0069-442d-96e6-fad712715614)
 
 **Procedure**
+1. Type the program in Quartus software.
+2. Compile and run the program.
+3. Generate the RTL schematic and save the logic diagram.
+4. Create nodes for inputs and outputs to generate the timing diagram.
+5. For different input combinations generate the timing diagram.
+\
 
-Write the detailed procedure here
+### **Program:**
 
-**Program:**
+/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming.
 
-/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
+Developed by: Senthil Raj G
+RegisterNumber: 212224100054
+
+```
+module fulladddataflow(a, b, cin, sum, carry); 
+  input a; 
+  input b;
+  input cin; 
+    output sum; 
+    output carry; 
+ assign sum=a^b^cin; 
+ assign carry=(a & b) | (b & cin) | (cin & a); 
+ endmodule
+```
+```
+module fulsubdataflow(a, b, cin, diff, borrow); 
+    input a; 
+    input b; 
+    input cin; 
+    output diff; 
+    output borrow; 
+  wire abar; 
+  assign abar= ~ a; 
+  assign diff=a^b^cin; 
+  assign borrow=(abar & b) | (b & cin) |(cin & abar); 
+endmodule
+```
 */
 
 **RTL Schematic**
+FULL ADDER: 
+![Screenshot 2025-04-15 201534](https://github.com/user-attachments/assets/1df6f165-560f-45ab-96b4-5f2e20a609a8)
+
+
+FULL SUBTRACTOR: 
+![Screenshot 2025-04-15 201628](https://github.com/user-attachments/assets/427586cf-ea92-42e4-9100-9ccb5158bc77)
+
 
 **Output Timing Waveform**
+![Screenshot 2025-04-15 201713](https://github.com/user-attachments/assets/8aea8a07-f9bb-42e1-816f-14571da51881)
+![Screenshot 2025-04-15 201732](https://github.com/user-attachments/assets/19fd8280-cb90-4f48-ba4b-a0cd9391ea5d)
+
 
 **Result:**
 
 Thus the Full Adder and Full Subtractor circuits are designed and the truth tables is verified using Quartus software.
-
-
-

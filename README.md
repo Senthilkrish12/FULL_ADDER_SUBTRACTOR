@@ -59,27 +59,19 @@ Developed by: Senthil Raj G
 RegisterNumber: 212224100054
 
 ```
-module fulladddataflow(a, b, cin, sum, carry); 
-  input a; 
-  input b;
-  input cin; 
-    output sum; 
-    output carry; 
- assign sum=a^b^cin; 
- assign carry=(a & b) | (b & cin) | (cin & a); 
- endmodule
+module exp3(a, b, c, sum, carry); 
+input a,b,c;
+output sum,carry; 
+xor(sum,a,b,c); 
+assign carry=a&b|b&c|c&a; 
+endmodule
 ```
 ```
-module fulsubdataflow(a, b, cin, diff, borrow); 
-    input a; 
-    input b; 
-    input cin; 
-    output diff; 
-    output borrow; 
-  wire abar; 
-  assign abar= ~ a; 
-  assign diff=a^b^cin; 
-  assign borrow=(abar & b) | (b & cin) |(cin & abar); 
+module exp3(a, b, c, diff, carry); 
+input a,b,c;
+output diff,carry; 
+xor(diff,a,b,c); 
+assign carry=(~a)&c|(~a)&b|(b&c); 
 endmodule
 ```
 */

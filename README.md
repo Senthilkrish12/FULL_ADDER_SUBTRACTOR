@@ -1,3 +1,6 @@
+Developed by: Senthil Raj G
+RegisterNumber: 212224100054
+
 # FULL_ADDER_SUBTRACTOR
 
 Implementation-of-Full-Adder-and-Full-subtractor-circuit
